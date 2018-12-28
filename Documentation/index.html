@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Documentation</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Documentation">
+  <meta name="author" content="Thomas Bell">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Documentation</h1>
+    <h2>Mtcars model fitting</h2>
+    <p>Thomas Bell<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+</style>
+
+<h2>About</h2>
+
+<p>This presentation serves as documentation for my <strong>Mtcars model fitting</strong> app.<br /><br /></p>
+
+<p>This app was built as part of the course project for <em>Developing Data Products</em>, which is part of <em>Johns Hopkins University: Data Science Specialization</em> on <a href="https://www.coursera.org/specializations/jhu-data-science">Coursera</a><br /><br /></p>
+
+<p>With this app, users can fit a linear regression model <code>lm()</code>, on the <code>mtcars</code> data set. Through the user interface the dependent and independent variables and optionally additional covariates can be set. After adjusting the variables a model summary, residuals and QQ plot is provided for the user to evaluate the fit.<br /><br /></p>
+
+<p><strong>Contents</strong></p>
+
+<ul>
+<li>Mtcars data set</li>
+<li>Selecting dependent, independent and covariate variables</li>
+<li>Model</li>
+<li>Plots</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Mtcars data set</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The app uses the <strong>Motor Trend Car Road Tests</strong> data set in R: <code>datasets::mtcars</code></p>
+
+<blockquote>
+<p><strong>Description</strong>
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).</p>
+
+<p><strong>Format</strong>
+A data frame with 32 observations on 11 (numeric) variables.</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>No.</th>
+<th>var</th>
+<th>description</th>
+<th>No.</th>
+<th>var</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1.</td>
+<td>mpg</td>
+<td>Miles/(US) gallon</td>
+<td><strong>7.</strong></td>
+<td>qsec</td>
+<td>1/4 mile time</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>cyl</td>
+<td>Number of cylinders</td>
+<td><strong>8.</strong></td>
+<td>vs</td>
+<td>Engine (0 = V-shaped, 1 = straight)</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>disp</td>
+<td>Displacement (cu.in.)</td>
+<td><strong>9.</strong></td>
+<td>am</td>
+<td>Transmission (0 = automatic, 1 = manual)</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>hp</td>
+<td>Gross horsepower</td>
+<td><strong>10.</strong></td>
+<td>gear</td>
+<td>Number of forward gears</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>drat</td>
+<td>Rear axle ratio</td>
+<td><strong>11.</strong></td>
+<td>carb</td>
+<td>Number of carburetors</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>wt</td>
+<td>Weight (1000 lbs)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Selecting dependent, independent and covariate variables</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/img/selectvars.png" alt=""></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p>Use this screen to select:</p>
+
+<ul>
+<li><strong>Dependent variable:</strong> the variable which should be predicted by the model (response)</li>
+<li><strong>Independent variable:</strong> variable which is used to predict the outcome (term)</li>
+<li><strong>Covariates (optional):</strong> additional variables can be added to improve the model (terms)</li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>On the tab <strong>Model</strong> a model summary is provided using the R function <code>summary()</code>. Example (showing coefficients):</p>
+
+<pre><code class="r">fit &lt;- lm(mpg ~ cyl, data = mtcars)
+summary(fit)$coefficients
+</code></pre>
+
+<pre><code>##             Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept) 37.88458  2.0738436 18.267808 8.369155e-18
+## cyl         -2.87579  0.3224089 -8.919699 6.112687e-10
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Plots</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>On the tab <strong>Plots</strong> a residuals and QQ plot are provided using the R function <code>plot()</code>. Example:</p>
+
+<pre><code class="r">par(mfrow=c(1,2))
+plot(fit, 1:2)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Mtcars data set'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Selecting dependent, independent and covariate variables'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Model'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Plots'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
