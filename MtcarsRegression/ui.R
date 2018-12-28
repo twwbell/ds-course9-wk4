@@ -33,7 +33,9 @@ shinyUI(fluidPage(
                   tabPanel("Plots",
                            plotOutput("plotResiduals"),
                            plotOutput("plotQq")
-                           )
+                           ),
+                  tabPanel("Documentation",
+                           includeHTML("documentation.html")
                   )
       )
-)))
+))))
