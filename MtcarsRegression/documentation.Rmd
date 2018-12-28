@@ -1,4 +1,7 @@
 ---
+title: "About"
+author: Thomas Bell
+date: 2018-12-28
 output: html_document
 ---
 
@@ -6,7 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## About
 This presentation serves as documentation for my **Mtcars model fitting** app.
 
 This app was built as part of the course project for *Developing Data Products*, which is part of *Johns Hopkins University: Data Science Specialization* on [Coursera](https://www.coursera.org/specializations/jhu-data-science)
